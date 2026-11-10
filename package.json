@@ -23,8 +23,8 @@
     "test": "tsx --test test/*.test.ts",
     "typecheck": "tsc --noEmit",
     "check": "npm run typecheck && npm test",
-    "eval": "tsx src/eval.ts",
-    "seed": "tsx src/seed.ts"
+    "eval": "tsx scripts/eval.ts",
+    "seed": "tsx scripts/seed.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.7.0",

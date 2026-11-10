@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { runTurn, type AgentEvent } from '../src/agent/agent.js';
 import type { LLM, LLMRequest, LLMResponse } from '../src/agent/llm.js';
-import { sampleTurns } from '../src/sample.js';
+import { sampleTurns } from '../src/memory/sample.js';
 import { MemoryStore } from '../src/memory/store.js';
 import { MockSearch } from '../src/search/mock.js';
 
@@ -109,7 +109,7 @@ test('forgetting a turn removes it from memory', () => {
 });
 
 test('figure guard separates "from memory only" from "unsupported" and ignores confirmed figures', async () => {
-  const { checkFigures } = await import('../src/sources.js');
+  const { checkFigures } = await import('../src/verify/sources.js');
   const r = checkFigures(
     'HubSpot is $20/seat ([x](https://a.test/v1.2.3)), Pipedrive $14/seat, a 15% rise, total $9,999, now on v26.13.0.',
     'HubSpot pricing: $20 per seat per month. Node v26.13.0 released.',

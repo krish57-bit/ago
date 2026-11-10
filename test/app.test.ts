@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import type { LLM, LLMResponse } from '../src/agent/llm.js';
 import { createApp } from '../src/app.js';
 import { MemoryStore } from '../src/memory/store.js';
-import { RateLimiter } from '../src/ratelimit.js';
+import { RateLimiter } from '../src/lib/ratelimit.js';
 import { MockSearch } from '../src/search/mock.js';
 
 process.env.LOG_LEVEL = 'silent';

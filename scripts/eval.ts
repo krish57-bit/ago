@@ -5,13 +5,13 @@
  *   npm run eval            all cases
  *   npm run eval -- crm     only cases whose id contains "crm"
  */
-import { runTurn, type AgentEvent } from './agent/agent.js';
-import { AnthropicLLM, OpenAICompatLLM, type LLM } from './agent/llm.js';
-import { config } from './config.js';
-import { sampleTurns } from './sample.js';
-import { MemoryStore } from './memory/store.js';
-import { CachedSearch } from './search/cache.js';
-import { TavilySearch } from './search/tavily.js';
+import { runTurn, type AgentEvent } from '../src/agent/agent.js';
+import { AnthropicLLM, OpenAICompatLLM, type LLM } from '../src/agent/llm.js';
+import { config } from '../src/config.js';
+import { sampleTurns } from '../src/memory/sample.js';
+import { MemoryStore } from '../src/memory/store.js';
+import { CachedSearch } from '../src/search/cache.js';
+import { TavilySearch } from '../src/search/tavily.js';
 
 interface Result {
   answer: string;
@@ -22,7 +22,7 @@ interface Result {
   recalled: number;
   windows: string[];
   links: number;
-  ledger: import('./types.js').LedgerItem[];
+  ledger: import('../src/types.js').LedgerItem[];
 }
 interface Case {
   id: string;

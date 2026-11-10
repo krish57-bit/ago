@@ -1,7 +1,7 @@
 import { join } from 'node:path';
-import { config } from './config.js';
-import { sampleTurns } from './sample.js';
-import { MemoryStore } from './memory/store.js';
+import { config } from '../src/config.js';
+import { sampleTurns } from '../src/memory/sample.js';
+import { MemoryStore } from '../src/memory/store.js';
 
 const store = new MemoryStore(join(config.dataDir, 'memory.jsonl'));
 const have = new Set(store.all().map((t) => t.conversationId));

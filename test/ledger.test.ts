@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { runTurn, type AgentEvent } from '../src/agent/agent.js';
 import type { LLM, LLMRequest, LLMResponse } from '../src/agent/llm.js';
-import { adjudicate, parseLedger } from '../src/ledger.js';
+import { adjudicate, parseLedger } from '../src/verify/ledger.js';
 import { MemoryStore } from '../src/memory/store.js';
 import { MockSearch } from '../src/search/mock.js';
 

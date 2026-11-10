@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 660" role="img" aria-labelledby="t d">
+<title id="t">Why chat agents get “what changed since…?” wrong, and how Ago counters each cause</title>
+<desc id="d">Fishbone diagram. Effect: a confidently wrong answer to a what-changed question. Six cause categories: time, memory, evidence, verification, transparency, latency. Each lists causes and the Ago countermeasure.</desc>
+<rect width="1300" height="660" rx="18" fill="#F5F7F6" stroke="#D5DDDB"/>
+<style>text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}</style>
+<text x="40" y="48" font-size="24" font-weight="700" fill="#14201F">Why “what changed since…?” goes wrong, and what Ago does about it</text>
+<text x="40" y="76" font-size="15" fill="#445553">Cause-and-effect (fishbone) view. Black text = what typically fails.  <tspan fill="#166534" font-weight="700">✓ Green = Ago’s countermeasure.</tspan></text>
+<line x1="40" y1="360" x2="1060" y2="360" stroke="#0F766E" stroke-width="6" stroke-linecap="round"/>
+<path d="M1060 290 L1270 290 L1270 430 L1060 430 L1088 360 Z" fill="#0F766E"/>
+<text x="1112" y="326" font-size="17" font-weight="700" fill="#FFFFFF">Confidently</text>
+<text x="1112" y="350" font-size="17" font-weight="700" fill="#FFFFFF">wrong answer to</text>
+<text x="1112" y="374" font-size="17" font-weight="700" fill="#FFFFFF">“what changed</text>
+<text x="1112" y="398" font-size="17" font-weight="700" fill="#FFFFFF">since…?”</text>
+<line x1="300" y1="150" x2="420" y2="360" stroke="#0F766E" stroke-width="4" stroke-linecap="round"/>
+<rect x="207.0" y="110" width="186" height="36" rx="9" fill="#DCF0ED" stroke="#0F766E" stroke-width="1.8"/>
+<text x="300.0" y="134" font-size="15" font-weight="700" text-anchor="middle" fill="#0F766E" letter-spacing="1">1  TIME</text>
+<line x1="300.4" y1="185.7" x2="320.4" y2="185.7" stroke="#0F766E" stroke-width="2"/>
+<text x="294.4" y="190.7" font-size="15" text-anchor="end" fill="#14201F">Relative dates left to the model</text>
+<line x1="325.6" y1="229.8" x2="345.6" y2="229.8" stroke="#0F766E" stroke-width="2"/>
+<text x="319.6" y="234.8" font-size="15" text-anchor="end" fill="#14201F">Timezone and “today” unknown</text>
+<line x1="350.8" y1="273.9" x2="370.8" y2="273.9" stroke="#0F766E" stroke-width="2"/>
+<text x="344.8" y="278.9" font-size="15" text-anchor="end" fill="#14201F">“Monday” is ambiguous</text>
+<line x1="376.0" y1="318.0" x2="396.0" y2="318.0" stroke="#166534" stroke-width="3"/>
+<text x="370.0" y="323.0" font-size="15" font-weight="700" text-anchor="end" fill="#166534">✓ resolved in code, per timezone</text>
+<line x1="610" y1="150" x2="730" y2="360" stroke="#0F766E" stroke-width="4" stroke-linecap="round"/>
+<rect x="517.0" y="110" width="186" height="36" rx="9" fill="#DCF0ED" stroke="#0F766E" stroke-width="1.8"/>
+<text x="610.0" y="134" font-size="15" font-weight="700" text-anchor="middle" fill="#0F766E" letter-spacing="1">2  MEMORY</text>
+<line x1="610.4" y1="185.7" x2="630.4" y2="185.7" stroke="#0F766E" stroke-width="2"/>
+<text x="604.4" y="190.7" font-size="15" text-anchor="end" fill="#14201F">No recall by date</text>
+<line x1="635.6" y1="229.8" x2="655.6" y2="229.8" stroke="#0F766E" stroke-width="2"/>
+<text x="629.6" y="234.8" font-size="15" text-anchor="end" fill="#14201F">Plausible but invented recall</text>
+<line x1="660.8" y1="273.9" x2="680.8" y2="273.9" stroke="#0F766E" stroke-width="2"/>
+<text x="654.8" y="278.9" font-size="15" text-anchor="end" fill="#14201F">No record of old answers</text>
+<line x1="686.0" y1="318.0" x2="706.0" y2="318.0" stroke="#166534" stroke-width="3"/>
+<text x="680.0" y="323.0" font-size="15" font-weight="700" text-anchor="end" fill="#166534">✓ dated log; says “none stored”</text>
+<line x1="920" y1="150" x2="1040" y2="360" stroke="#0F766E" stroke-width="4" stroke-linecap="round"/>
+<rect x="827.0" y="110" width="186" height="36" rx="9" fill="#DCF0ED" stroke="#0F766E" stroke-width="1.8"/>
+<text x="920.0" y="134" font-size="15" font-weight="700" text-anchor="middle" fill="#0F766E" letter-spacing="1">3  EVIDENCE</text>
+<line x1="920.4" y1="185.7" x2="940.4" y2="185.7" stroke="#0F766E" stroke-width="2"/>
+<text x="914.4" y="190.7" font-size="15" text-anchor="end" fill="#14201F">Pages carry no dates</text>
+<line x1="945.6" y1="229.8" x2="965.6" y2="229.8" stroke="#0F766E" stroke-width="2"/>
+<text x="939.6" y="234.8" font-size="15" text-anchor="end" fill="#14201F">Stale snippets rank first</text>
+<line x1="970.8" y1="273.9" x2="990.8" y2="273.9" stroke="#0F766E" stroke-width="2"/>
+<text x="964.8" y="278.9" font-size="15" text-anchor="end" fill="#14201F">One shallow search</text>
+<line x1="996.0" y1="318.0" x2="1016.0" y2="318.0" stroke="#166534" stroke-width="3"/>
+<text x="990.0" y="323.0" font-size="15" font-weight="700" text-anchor="end" fill="#166534">✓ since/until + parallel search</text>
+<line x1="300" y1="570" x2="420" y2="360" stroke="#0F766E" stroke-width="4" stroke-linecap="round"/>
+<rect x="207.0" y="574" width="186" height="36" rx="9" fill="#DCF0ED" stroke="#0F766E" stroke-width="1.8"/>
+<text x="300.0" y="598" font-size="15" font-weight="700" text-anchor="middle" fill="#0F766E" letter-spacing="1">4  VERIFICATION</text>
+<line x1="300.4" y1="534.3" x2="320.4" y2="534.3" stroke="#0F766E" stroke-width="2"/>
+<text x="294.4" y="539.3" font-size="15" text-anchor="end" fill="#14201F">Links that don’t exist</text>
+<line x1="325.6" y1="490.2" x2="345.6" y2="490.2" stroke="#0F766E" stroke-width="2"/>
+<text x="319.6" y="495.2" font-size="15" text-anchor="end" fill="#14201F">Old price repeated as “same”</text>
+<line x1="350.8" y1="446.1" x2="370.8" y2="446.1" stroke="#0F766E" stroke-width="2"/>
+<text x="344.8" y="451.1" font-size="15" text-anchor="end" fill="#14201F">Verdict with no baseline</text>
+<line x1="376.0" y1="402.0" x2="396.0" y2="402.0" stroke="#166534" stroke-width="3"/>
+<text x="370.0" y="407.0" font-size="15" font-weight="700" text-anchor="end" fill="#166534">✓ guards + ledger, checked in code</text>
+<line x1="610" y1="570" x2="730" y2="360" stroke="#0F766E" stroke-width="4" stroke-linecap="round"/>
+<rect x="517.0" y="574" width="186" height="36" rx="9" fill="#DCF0ED" stroke="#0F766E" stroke-width="1.8"/>
+<text x="610.0" y="598" font-size="15" font-weight="700" text-anchor="middle" fill="#0F766E" letter-spacing="1">5  TRANSPARENCY</text>
+<line x1="610.4" y1="534.3" x2="630.4" y2="534.3" stroke="#0F766E" stroke-width="2"/>
+<text x="604.4" y="539.3" font-size="15" text-anchor="end" fill="#14201F">Sources hard to inspect</text>
+<line x1="635.6" y1="490.2" x2="655.6" y2="490.2" stroke="#0F766E" stroke-width="2"/>
+<text x="629.6" y="495.2" font-size="15" text-anchor="end" fill="#14201F">Memory hidden from you</text>
+<line x1="660.8" y1="446.1" x2="680.8" y2="446.1" stroke="#0F766E" stroke-width="2"/>
+<text x="654.8" y="451.1" font-size="15" text-anchor="end" fill="#14201F">No steps or timings shown</text>
+<line x1="686.0" y1="402.0" x2="706.0" y2="402.0" stroke="#166534" stroke-width="3"/>
+<text x="680.0" y="407.0" font-size="15" font-weight="700" text-anchor="end" fill="#166534">✓ inspector, panel, Memory tab</text>
+<line x1="920" y1="570" x2="1040" y2="360" stroke="#0F766E" stroke-width="4" stroke-linecap="round"/>
+<rect x="827.0" y="574" width="186" height="36" rx="9" fill="#DCF0ED" stroke="#0F766E" stroke-width="1.8"/>
+<text x="920.0" y="598" font-size="15" font-weight="700" text-anchor="middle" fill="#0F766E" letter-spacing="1">6  LATENCY</text>
+<line x1="920.4" y1="534.3" x2="940.4" y2="534.3" stroke="#0F766E" stroke-width="2"/>
+<text x="914.4" y="539.3" font-size="15" text-anchor="end" fill="#14201F">Extra model call per check</text>
+<line x1="945.6" y1="490.2" x2="965.6" y2="490.2" stroke="#0F766E" stroke-width="2"/>
+<text x="939.6" y="495.2" font-size="15" text-anchor="end" fill="#14201F">Planner and critic loops</text>
+<line x1="970.8" y1="446.1" x2="990.8" y2="446.1" stroke="#0F766E" stroke-width="2"/>
+<text x="964.8" y="451.1" font-size="15" text-anchor="end" fill="#14201F">Slower answers</text>
+<line x1="996.0" y1="402.0" x2="1016.0" y2="402.0" stroke="#166534" stroke-width="3"/>
+<text x="990.0" y="407.0" font-size="15" font-weight="700" text-anchor="end" fill="#166534">✓ one loop; guards are plain code</text>
+</svg>

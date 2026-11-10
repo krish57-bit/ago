@@ -11,7 +11,7 @@
  * Stored on the turn, so the NEXT "is it still correct?" starts from recorded values, not prose.
  */
 import { checkFigures, figuresOf, normUrl } from './sources.js';
-import type { LedgerItem, LedgerStatus } from './types.js';
+import type { LedgerItem, LedgerStatus } from '../types.js';
 
 const BLOCK = /<ledger>([\s\S]*?)<\/ledger>/i;
 

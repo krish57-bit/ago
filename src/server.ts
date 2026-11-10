@@ -5,7 +5,7 @@ import { serve } from '@hono/node-server';
 import { AnthropicLLM, OpenAICompatLLM, type LLM } from './agent/llm.js';
 import { createApp } from './app.js';
 import { config } from './config.js';
-import { log } from './logger.js';
+import { log } from './lib/logger.js';
 import { MemoryStore } from './memory/store.js';
 import { CachedSearch } from './search/cache.js';
 import { MockSearch } from './search/mock.js';

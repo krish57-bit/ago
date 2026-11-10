@@ -1,4 +1,4 @@
-import type { SearchRecord } from './types.js';
+import type { SearchRecord } from '../types.js';
 
 export interface Source {
   n: number;

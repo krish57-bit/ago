@@ -7,12 +7,12 @@ import { secureHeaders } from 'hono/secure-headers';
 import { streamSSE } from 'hono/streaming';
 import { runTurn } from './agent/agent.js';
 import type { LLM } from './agent/llm.js';
-import { log } from './logger.js';
+import { log } from './lib/logger.js';
 import { MemoryStore } from './memory/store.js';
 import { isValidTz } from './memory/temporal.js';
-import { RateLimiter } from './ratelimit.js';
-import { sampleTurns } from './sample.js';
-import { collectSources } from './sources.js';
+import { RateLimiter } from './lib/ratelimit.js';
+import { sampleTurns } from './memory/sample.js';
+import { collectSources } from './verify/sources.js';
 import type { SearchProvider } from './types.js';
 
 export interface AppDeps {

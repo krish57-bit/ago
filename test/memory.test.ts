@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { sampleTurns } from '../src/sample.js';
+import { sampleTurns } from '../src/memory/sample.js';
 import { retrieveMemory } from '../src/memory/retrieve.js';
 import { MemoryStore } from '../src/memory/store.js';
 

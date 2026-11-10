@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
-import { startOfDay, wallClock } from './memory/temporal.js';
-import type { TurnRecord } from './types.js';
+import { startOfDay, wallClock } from './temporal.js';
+import type { TurnRecord } from '../types.js';
 
 /**
  * Sample history so a first-time user can try "what did I ask on Monday?" on day one.

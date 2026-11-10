@@ -1,8 +1,8 @@
 import { randomUUID } from 'node:crypto';
-import { adjudicate, parseLedger } from '../ledger.js';
+import { adjudicate, parseLedger } from '../verify/ledger.js';
 import { retrieveMemory } from '../memory/retrieve.js';
 import type { MemoryStore } from '../memory/store.js';
-import { checkFigures, collectSources, unverifiedLinks, type FigureCheck, type Source } from '../sources.js';
+import { checkFigures, collectSources, unverifiedLinks, type FigureCheck, type Source } from '../verify/sources.js';
 import type { LedgerItem, SearchParams, SearchProvider, SearchRecord, SearchResult, TurnRecord } from '../types.js';
 import type { Block, LLM, Msg } from './llm.js';
 import { SYSTEM_PROMPT, WEB_SEARCH_TOOL, dynamicContext } from './prompt.js';
