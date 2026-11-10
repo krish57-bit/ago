@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ago</title>
+<meta name="description" content="Ago: a search assistant that remembers what you asked, and when.">
+<meta name="theme-color" content="#0F766E">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<noscript><p style="padding:2rem;font-family:system-ui">Ago needs JavaScript to run.</p></noscript>
+<div class="scrim" id="scrim"></div>
+<aside id="side">
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M10 8.5v15h5.2a7.5 7.5 0 0 0 0-15z" fill="none" stroke="var(--bg)" stroke-width="2.6" stroke-linejoin="round"/><circle cx="24.5" cy="8.5" r="2.3" fill="var(--bg)"/></svg>
+    <div><div class="wordmark brandname">Ago</div><div class="tag">search that remembers when</div></div>
+  </div>
+  <button class="newchat" id="new" type="button"><span id="newlabel"></span><kbd>⌘K</kbd></button>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-chats" aria-selected="true">Chats</button>
+    <button class="tab" role="tab" id="tab-mem" aria-selected="false">Memory</button>
+  </div>
+  <div class="list" id="list"></div>
+  <div class="sidefoot">
+    <span id="memcount">—</span>
+    <span class="foot-actions"><button class="mini" id="export" type="button" title="Download everything Ago remembers as JSON"></button><button class="mini" id="helpbtn" type="button" title="Keyboard shortcuts and how it works" aria-label="Help">?</button></span>
+  </div>
+</aside>
+<main>
+  <header>
+    <button class="burger" id="burger" type="button" aria-label="Menu"></button>
+    <div class="now" id="now"></div>
+    <div class="pill" id="model"><span class="dot" id="dot"></span><span id="modeltxt">…</span></div>
+  </header>
+  <div id="banner" role="alert"></div>
+  <div id="log" role="log" aria-live="off" aria-label="Conversation"><div class="wrap" id="wrap"></div></div>
+  <div id="sr" class="sr" role="status" aria-live="polite"></div>
+  <form id="form">
+    <div class="box">
+      <textarea id="input" rows="1" placeholder="Ask anything. Try “what did I ask you on Monday?”" aria-label="Message" autofocus></textarea>
+      <button id="send" type="submit" aria-label="Send"></button>
+    </div>
+    <div class="hint">Enter to send · Shift+Enter for a new line · press <kbd>?</kbd> for help</div>
+  </form>
+</main>
+<aside id="srcpanel" aria-label="Sources"><header><h3>Sources</h3><button class="ghost" id="srcclose" type="button" aria-label="Close sources"></button></header><div id="srcbody"></div></aside>
+<dialog id="help" aria-labelledby="helptitle">
+  <h2 id="helptitle" class="brandname">Ago</h2>
+  <p class="lead">Search that remembers when. Every answer is checked by code before you see it.</p>
+  <h3>How it works</h3>
+  <ul>
+    <li><b>Dates are resolved in code</b>, in your timezone. “Last Tuesday” becomes an exact date before the model is called.</li>
+    <li><b>Memory is dated.</b> Ask what you asked on any day, or whether an old answer still holds.</li>
+    <li><b>Claims are checked.</b> Links and figures must come from this turn’s search results; verdicts can’t outrun their evidence.</li>
+  </ul>
+  <h3>Shortcuts</h3>
+  <dl class="keys">
+    <dt><kbd>Enter</kbd></dt><dd>Send</dd>
+    <dt><kbd>Shift</kbd> <kbd>Enter</kbd></dt><dd>New line</dd>
+    <dt><kbd>⌘</kbd>/<kbd>Ctrl</kbd> <kbd>K</kbd></dt><dd>New chat</dd>
+    <dt><kbd>/</kbd></dt><dd>Focus the message box</dd>
+    <dt><kbd>Esc</kbd></dt><dd>Close panels</dd>
+    <dt><kbd>?</kbd></dt><dd>This help</dd>
+  </dl>
+  <form method="dialog"><button class="primary" autofocus>Close</button></form>
+</dialog>
+<script src="/vendor/marked.js"></script>
+<script src="/vendor/purify.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

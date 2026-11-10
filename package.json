@@ -1,0 +1,43 @@
+{
+  "name": "ago",
+  "displayName": "Ago",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ago: a search assistant that remembers what you asked, and when. One tool (web search), dated memory, and answers checked by code.",
+  "license": "MIT",
+  "keywords": [
+    "ai-agent",
+    "chat",
+    "web-search",
+    "memory",
+    "llm",
+    "typescript"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=20.6"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test",
+    "eval": "tsx src/eval.ts",
+    "seed": "tsx src/seed.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.7.0",
+    "@hono/node-server": "^2.1.6",
+    "chrono-node": "^2.10.3",
+    "dompurify": "^3.4.17",
+    "dotenv": "^18.0.10",
+    "hono": "^4.13.17",
+    "marked": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
